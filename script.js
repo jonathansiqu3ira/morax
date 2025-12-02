@@ -94,3 +94,129 @@ document.querySelectorAll('section').forEach(section => {
 // Hero sempre visível
 document.querySelector('header').style.opacity = '1';
 document.querySelector('header').style.transform = 'translateY(0)';
+
+// ==========================================
+// GALLERY & LIGHTBOX
+// ==========================================
+
+// Load More Gallery Button
+const loadMoreBtn = document.getElementById('gallery-load-more');
+const hiddenItems = document.querySelectorAll('.gallery-item-hidden');
+
+if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+        hiddenItems.forEach(item => {
+            item.classList.remove('hidden');
+        });
+        loadMoreBtn.style.display = 'none';
+    });
+}
+
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxPrev = document.getElementById('lightbox-prev');
+const lightboxNext = document.getElementById('lightbox-next');
+const lightboxCounter = document.getElementById('lightbox-counter');
+
+let currentImageIndex = 0;
+let visibleImages = Array.from(galleryItems);
+
+// Open Lightbox
+galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        openLightbox(index);
+    });
+});
+
+function openLightbox(index) {
+    currentImageIndex = index;
+    updateLightboxImage();
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+}
+
+function updateLightboxImage() {
+    const currentItem = visibleImages[currentImageIndex];
+    const img = currentItem.querySelector('img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCounter.textContent = `${currentImageIndex + 1} / ${visibleImages.length}`;
+}
+
+// Close Lightbox
+lightboxClose.addEventListener('click', closeLightbox);
+
+// Click outside image to close
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+// Navigation
+lightboxPrev.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
+    updateLightboxImage();
+});
+
+lightboxNext.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
+    updateLightboxImage();
+});
+
+// Keyboard Navigation
+document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') lightboxPrev.click();
+        if (e.key === 'ArrowRight') lightboxNext.click();
+    }
+});
+
+// ==========================================
+// GALLERY FILTERS
+// ==========================================
+
+const filterButtons = document.querySelectorAll('.gallery-filter');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Update active state
+        filterButtons.forEach(btn => btn.classList.remove('active', 'bg-white', 'text-black'));
+        button.classList.add('active', 'bg-white', 'text-black');
+
+        const filter = button.dataset.filter;
+
+        // Filter images
+        galleryItems.forEach(item => {
+            if (filter === 'all' || item.dataset.category === filter) {
+                item.style.display = 'block';
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1)';
+                }, 10);
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    item.style.display = 'none';
+                }, 300);
+            }
+        });
+
+        // Update visible images array
+        setTimeout(() => {
+            visibleImages = Array.from(galleryItems).filter(item => item.style.display !== 'none');
+        }, 310);
+    });
+});
+

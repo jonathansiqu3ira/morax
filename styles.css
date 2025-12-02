@@ -96,3 +96,46 @@ img[loading="lazy"].loaded {
     top: 16px;
     left: 16px;
 }
+
+/* ==========================================
+   GALLERY STYLES
+   ========================================== */
+
+.gallery-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-filter.active {
+    background: white;
+    color: black;
+}
+
+/* Lightbox Animations */
+#lightbox {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#lightbox-img {
+    animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
