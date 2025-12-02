@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MORAX | Official</title>
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="MORAX - DJ e produtor de Melodic Techno e Afro House. Formado pela DJ College (D.EDGE), criando jornadas sonoras etéreas em São Paulo.">
+    <meta name="keywords" content="MORAX, DJ, Melodic Techno, Afro House, Deep House, Indie Dance, São Paulo, D.EDGE, Electronic Music">
+    <meta name="author" content="MORAX">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="MORAX | Electronic Music Artist">
+    <meta property="og:description" content="Melodic Techno • Afro House • Deep House • Indie Dance">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://morax-official.com">
+    <meta property="og:image" content="https://morax-official.com/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MORAX | Electronic Music Artist">
+    <meta name="twitter:description" content="Melodic Techno • Afro House">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎵%3C/text%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'obsidian': '#050505',
+                        'charcoal': '#121212',
+                        'chrome-light': '#ffffff',
+                        'chrome-mid': '#a1a1aa',
+                        'chrome-dark': '#52525b',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syncopate', 'sans-serif'], // Fonte opcional via Google Fonts para títulos
+                    },
+                    backgroundImage: {
+                        'chrome-gradient': 'linear-gradient(135deg, #ffffff 0%, #a1a1aa 50%, #52525b 100%)',
+                        'chrome-text': 'linear-gradient(to bottom, #ffffff 30%, #a1a1aa 100%)',
+                    },
+                    letterSpacing: {
+                        'widest-premium': '0.25em',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Syncopate:wght@400;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Schema.org Markup for Musician -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "MORAX",
+        "genre": ["Melodic Techno", "Afro House", "Deep House", "Indie Dance"],
+        "url": "https://morax-official.com",
+        "sameAs": [
+            "https://instagram.com/morandrad",
+            "https://soundcloud.com/moraandrad"
+        ],
+        "location": {
+            "@type": "Place",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "São Paulo",
+                "addressCountry": "BR"
+            }
+        }
+    }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+        }
+
+        /* Textura de Ruído (Noise) para dar profundidade */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Efeito de Texto Cromado */
+        .text-chrome {
+            background: linear-gradient(to bottom, #ffffff 0%, #b8b8b8 50%, #8a8a8a 51%, #a1a1a1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Scrollbar customizada */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        /* Smooth scroll offset para nav fixa */
+        html {
+            scroll-padding-top: 80px;
+        }
+        
+        /* Loading state para imagens */
+        img {
+            image-rendering: crisp-edges;
+        }
+        
+        img[loading="lazy"] {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        img[loading="lazy"].loaded {
+            opacity: 1;
+        }
+        
+        /* Skip to content (acessibilidade) */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #fff;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            font-weight: bold;
+        }
+        
+        .skip-to-content:focus {
+            top: 16px;
+            left: 16px;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative">
+
+    <div class="noise-overlay"></div>
+    
+    <!-- Skip to content (acessibilidade) -->
+    <a href="#bio" class="skip-to-content">Pular para conteúdo principal</a>
+
+    <!-- Navegação Minimalista Flutuante -->
+    <nav class="fixed top-0 w-full z-40 px-6 py-6 mix-blend-difference text-white flex justify-between items-center">
+        <a href="#" class="text-xl font-display font-bold tracking-widest uppercase">Morax</a>
+        <div class="hidden md:flex space-x-12 text-xs font-bold tracking-widest uppercase">
+            <a href="#bio" class="hover:text-gray-400 transition-colors">Bio</a>
+            <a href="#music" class="hover:text-gray-400 transition-colors">Music</a>
+            <a href="#tour" class="hover:text-gray-400 transition-colors">Tour</a>
+            <a href="#contact" class="hover:text-gray-400 transition-colors">Contact</a>
+        </div>
+        <!-- Menu Hamburguer Mobile -->
+        <button id="mobile-menu-btn" aria-label="Abrir menu de navegação" class="md:hidden text-white">
+             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </nav>
+    
+    <!-- Menu Mobile Overlay -->
+    <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 hidden flex-col items-center justify-center">
+        <button id="mobile-menu-close" aria-label="Fechar menu" class="absolute top-6 right-6 text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <div class="space-y-8 text-center">
+            <a href="#bio" class="mobile-menu-link block text-2xl font-display uppercase tracking-widest hover:text-gray-400 transition-colors">Bio</a>
+            <a href="#music" class="mobile-menu-link block text-2xl font-display uppercase tracking-widest hover:text-gray-400 transition-colors">Music</a>
+            <a href="#tour" class="mobile-menu-link block text-2xl font-display uppercase tracking-widest hover:text-gray-400 transition-colors">Tour</a>
+            <a href="#contact" class="mobile-menu-link block text-2xl font-display uppercase tracking-widest hover:text-gray-400 transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section: Imersivo e Tipográfico -->
+    <header class="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+        <!-- Fundo Abstrato (Gradiente Sutil) -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-900 via-obsidian to-obsidian opacity-80"></div>
+
+        <div class="relative z-10 text-center px-4 animate-fade-in-up">
+            <p class="text-xs md:text-sm uppercase tracking-[0.3em] text-gray-400 mb-6">Melodic Techno • Afro House</p>
+            <h1 class="font-display text-6xl md:text-9xl font-bold uppercase tracking-tighter text-chrome mb-8 leading-none">
+                Morax
+            </h1>
+            <div class="h-px w-24 bg-gradient-to-r from-transparent via-white to-transparent mx-auto opacity-50 mb-8"></div>
+
+            <p class="max-w-md mx-auto text-gray-400 font-light text-sm md:text-base leading-relaxed">
+                "Expressando a forma mais pura dos sentimentos através de jornadas etéreas e dançantes."
+            </p>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-50">
+            <span class="text-[10px] uppercase tracking-widest mb-2">Explore</span>
+            <div class="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
+        </div>
+    </header>
+
+    <!-- Bio Section: Layout Assimétrico -->
+    <section id="bio" class="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+            <!-- Imagem Estilizada -->
+            <div class="md:col-span-5 relative">
+                <div class="aspect-[3/4] bg-gray-900 relative overflow-hidden grayscale hover:grayscale-0 transition duration-700 ease-in-out">
+                     <!-- Placeholder para Imagem Profissional -->
+                    <img src="https://placehold.co/600x800/111/444?text=MORAX+PORTRAIT" alt="Retrato profissional de MORAX em estúdio" loading="lazy" class="object-cover w-full h-full opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian to-transparent opacity-60"></div>
+                </div>
+                <!-- Borda Decorativa -->
+                <div class="absolute -bottom-4 -right-4 w-24 h-24 border-r border-b border-white/20"></div>
+            </div>
+
+            <!-- Texto -->
+            <div class="md:col-span-7 md:pl-12">
+                <h2 class="font-display text-4xl md:text-5xl uppercase text-white mb-8 tracking-wide">The <br><span class="text-gray-600">Alchemist</span></h2>
+                <div class="space-y-6 text-gray-400 font-light text-sm md:text-base leading-relaxed text-justify">
+                    <p>
+                        Iniciando sua trajetória em 2021, <strong class="text-white font-normal">Morax</strong> transformou um hobby despretensioso em uma assinatura sonora sofisticada. Formado pela renomada <span class="text-white border-b border-white/30 pb-0.5">DJ College (D.EDGE)</span>, ele domina a arte de criar atmosferas.
+                    </p>
+                    <p>
+                        Seus sets são construídos sobre quatro pilares fundamentais: Melodic Techno, Indie Dance, Deep House e Afro House. Não é apenas música; é uma narrativa hipnótica que transita entre o futurismo elegante e a profundidade emocional.
+                    </p>
+                </div>
+
+                <div class="mt-12 grid grid-cols-2 gap-8 border-t border-white/10 pt-8">
+                    <div>
+                        <span class="block text-2xl font-display text-white">4+</span>
+                        <span class="text-xs uppercase tracking-widest text-gray-500">Gêneros Core</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-display text-white">SP</span>
+                        <span class="text-xs uppercase tracking-widest text-gray-500">Base</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section: Card Estilo "Glass" -->
+    <section id="music" class="py-32 bg-charcoal relative">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <span class="text-xs text-chrome-dark uppercase tracking-widest font-bold">Latest Release</span>
+                    <h2 class="font-display text-4xl mt-2 text-white uppercase">Sonic Journey</h2>
+                </div>
+                <a href="https://soundcloud.com/moraandrad" target="_blank" class="hidden md:inline-flex items-center text-xs font-bold uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition duration-300">
+                    SoundCloud Profile
+                    <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+
+            <!-- Featured Set Card - SoundCloud Widget -->
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-gray-700 to-gray-900 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                <div class="relative bg-obsidian border border-white/10 p-8 md:p-12 rounded-sm">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                        <span class="text-[10px] uppercase tracking-widest text-gray-400">Live Recording</span>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-display uppercase text-white mb-2">Freack Chic <span class="text-gray-600">@ D.EDGE</span></h3>
+                    <p class="text-gray-500 font-light text-sm mb-6">Uma jornada progressiva gravada ao vivo em um dos clubes mais icônicos do Brasil.</p>
+                    
+                    <!-- SoundCloud Embedded Player -->
+                    <div class="w-full">
+                        <iframe 
+                            width="100%" 
+                            height="166" 
+                            scrolling="no" 
+                            frameborder="no" 
+                            allow="autoplay"
+                            loading="lazy"
+                            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/moraandrad&color=%23ffffff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
+                        </iframe>
+                    </div>
+                    
+                    <div class="mt-4 text-center">
+                        <a href="https://soundcloud.com/moraandrad" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition">
+                            Ver todos os sets no SoundCloud
+                            <svg class="w-3 h-3 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Tour/Gigs Section: Lista Minimalista -->
+    <section id="tour" class="py-32 px-6 max-w-4xl mx-auto">
+        <h2 class="font-display text-center text-4xl mb-16 uppercase text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">Selected Gigs</h2>
+
+        <div class="space-y-0 divide-y divide-white/10 border-t border-b border-white/10">
+            <!-- Gig Item -->
+            <div class="group py-6 flex flex-col md:flex-row md:items-center justify-between hover:bg-white/5 transition px-4">
+                <div class="mb-2 md:mb-0">
+                    <span class="block text-xl text-white font-light group-hover:pl-4 transition-all duration-300">D.EDGE</span>
+                    <span class="text-xs uppercase text-gray-600 tracking-widest group-hover:pl-4 transition-all duration-300">Club</span>
+                </div>
+                <div class="text-right">
+                    <span class="block text-sm text-gray-400">São Paulo, BR</span>
+                </div>
+            </div>
+
+            <!-- Gig Item -->
+            <div class="group py-6 flex flex-col md:flex-row md:items-center justify-between hover:bg-white/5 transition px-4">
+                <div class="mb-2 md:mb-0">
+                    <span class="block text-xl text-white font-light group-hover:pl-4 transition-all duration-300">300 Sky Bar</span>
+                    <span class="text-xs uppercase text-gray-600 tracking-widest group-hover:pl-4 transition-all duration-300">Premium Venue</span>
+                </div>
+                <div class="text-right">
+                    <span class="block text-sm text-gray-400">São Paulo, BR</span>
+                </div>
+            </div>
+
+            <!-- Gig Item -->
+            <div class="group py-6 flex flex-col md:flex-row md:items-center justify-between hover:bg-white/5 transition px-4">
+                <div class="mb-2 md:mb-0">
+                    <span class="block text-xl text-white font-light group-hover:pl-4 transition-all duration-300">SP Fashion Week</span>
+                    <span class="text-xs uppercase text-gray-600 tracking-widest group-hover:pl-4 transition-all duration-300">Special Event</span>
+                </div>
+                <div class="text-right">
+                    <span class="block text-sm text-gray-400">São Paulo, BR</span>
+                </div>
+            </div>
+             <!-- Gig Item -->
+             <div class="group py-6 flex flex-col md:flex-row md:items-center justify-between hover:bg-white/5 transition px-4">
+                <div class="mb-2 md:mb-0">
+                    <span class="block text-xl text-white font-light group-hover:pl-4 transition-all duration-300">Magnólia Pocket Club</span>
+                    <span class="text-xs uppercase text-gray-600 tracking-widest group-hover:pl-4 transition-all duration-300">Residency</span>
+                </div>
+                <div class="text-right">
+                    <span class="block text-sm text-gray-400">São Paulo, BR</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer: Ultra Clean -->
+    <footer id="contact" class="py-20 px-6 bg-black border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+
+            <div class="mb-10 md:mb-0">
+                <h3 class="font-display text-2xl uppercase tracking-widest mb-1">Morax</h3>
+                <p class="text-xs text-gray-600 uppercase tracking-widest">Electronic Music Artist</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 md:gap-16">
+                <div>
+                    <span class="block text-[10px] uppercase text-gray-600 tracking-widest mb-2">Booking & Management</span>
+                    <a href="mailto:moraandrad@gmail.com" class="text-sm font-light hover:text-white transition-colors text-gray-300">moraandrad@gmail.com</a>
+                    <br>
+                    <a href="https://wa.me/5511987486814" class="text-sm font-light hover:text-white transition-colors text-gray-300">+55 11 98748-6814</a>
+                </div>
+
+                <div>
+                    <span class="block text-[10px] uppercase text-gray-600 tracking-widest mb-2">Socials</span>
+                    <div class="flex gap-4">
+                        <a href="https://instagram.com/morandrad" target="_blank" rel="noopener noreferrer" aria-label="Instagram de MORAX" class="text-gray-400 hover:text-white transition text-sm uppercase tracking-wider">Instagram</a>
+                        <a href="https://soundcloud.com/moraandrad" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud de MORAX" class="text-gray-400 hover:text-white transition text-sm uppercase tracking-wider">SoundCloud</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-20 text-center md:text-left text-[10px] text-gray-700 uppercase tracking-widest">
+            © 2025 Morax. All Rights Reserved. São Paulo.
+        </div>
+        
+        <!-- Newsletter Signup -->
+        <div class="mt-12 max-w-md mx-auto md:mx-0">
+            <span class="block text-[10px] uppercase text-gray-600 tracking-widest mb-3">Stay Updated</span>
+            <form class="flex gap-2" id="newsletter-form">
+                <input 
+                    type="email" 
+                    placeholder="seu@email.com" 
+                    required
+                    aria-label="Email para newsletter"
+                    class="flex-1 bg-white/5 border border-white/10 px-4 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30 transition"
+                >
+                <button 
+                    type="submit"
+                    class="px-6 py-2 bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-gray-300 transition"
+                >
+                    Inscrever
+                </button>
+            </form>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menu Mobile Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            document.body.style.overflow = '';
+        });
+        
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Fechar menu ao pressionar ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Lazy loading para imagens
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                        imageObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            images.forEach(img => imageObserver.observe(img));
+        } else {
+            // Fallback para navegadores antigos
+            images.forEach(img => img.classList.add('loaded'));
+        }
+        
+        // Smooth scroll para navegação
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                }
+            });
+        });
+        
+        // Newsletter form handler
+        const newsletterForm = document.getElementById('newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            
+            // Aqui você pode integrar com um serviço de newsletter (Mailchimp, ConvertKit, etc.)
+            console.log('Newsletter signup:', email);
+            
+            // Feedback visual
+            const button = e.target.querySelector('button');
+            const originalText = button.textContent;
+            button.textContent = 'Inscrito!';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+                e.target.reset();
+            }, 3000);
+        });
+        
+        // Scroll animations usando Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Animar seções ao scroll
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            fadeInObserver.observe(section);
+        });
+        
+        // Hero sempre visível
+        document.querySelector('header').style.opacity = '1';
+        document.querySelector('header').style.transform = 'translateY(0)';
+    </script>
+
+</body>
+</html>
