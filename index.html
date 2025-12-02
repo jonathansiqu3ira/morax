@@ -4,67 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MORAX | Official</title>
-    
+
     <!-- SEO & Meta Tags -->
     <meta name="description" content="MORAX - DJ e produtor de Melodic Techno e Afro House. Formado pela DJ College (D.EDGE), criando jornadas sonoras etéreas em São Paulo.">
     <meta name="keywords" content="MORAX, DJ, Melodic Techno, Afro House, Deep House, Indie Dance, São Paulo, D.EDGE, Electronic Music">
     <meta name="author" content="MORAX">
-    
+
     <!-- Open Graph / Social Media -->
     <meta property="og:title" content="MORAX | Electronic Music Artist">
     <meta property="og:description" content="Melodic Techno • Afro House • Deep House • Indie Dance">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://morax-official.com">
     <meta property="og:image" content="https://morax-official.com/og-image.jpg">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MORAX | Electronic Music Artist">
     <meta name="twitter:description" content="Melodic Techno • Afro House">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎵%3C/text%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'obsidian': '#050505',
-                        'charcoal': '#121212',
-                        'chrome-light': '#ffffff',
-                        'chrome-mid': '#a1a1aa',
-                        'chrome-dark': '#52525b',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Syncopate', 'sans-serif'], // Fonte opcional via Google Fonts para títulos
-                    },
-                    backgroundImage: {
-                        'chrome-gradient': 'linear-gradient(135deg, #ffffff 0%, #a1a1aa 50%, #52525b 100%)',
-                        'chrome-text': 'linear-gradient(to bottom, #ffffff 30%, #a1a1aa 100%)',
-                    },
-                    letterSpacing: {
-                        'widest-premium': '0.25em',
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="config.js"></script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Syncopate:wght@400;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-    
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
-    
+    <script src="analytics.js"></script>
+
     <!-- Schema.org Markup for Musician -->
     <script type="application/ld+json">
     {
@@ -88,106 +62,13 @@
     }
     </script>
 
-    <style>
-        body {
-            background-color: #050505;
-            color: #ffffff;
-        }
-
-        /* Textura de Ruído (Noise) para dar profundidade */
-        .noise-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 50;
-            opacity: 0.05;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-
-        /* Efeito de Texto Cromado */
-        .text-chrome {
-            background: linear-gradient(to bottom, #ffffff 0%, #b8b8b8 50%, #8a8a8a 51%, #a1a1a1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Scrollbar customizada */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #050505;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-        
-        /* Animações */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-fade-in-up {
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        /* Smooth scroll offset para nav fixa */
-        html {
-            scroll-padding-top: 80px;
-        }
-        
-        /* Loading state para imagens */
-        img {
-            image-rendering: crisp-edges;
-        }
-        
-        img[loading="lazy"] {
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        img[loading="lazy"].loaded {
-            opacity: 1;
-        }
-        
-        /* Skip to content (acessibilidade) */
-        .skip-to-content {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #fff;
-            color: #000;
-            padding: 8px 16px;
-            text-decoration: none;
-            z-index: 100;
-            font-weight: bold;
-        }
-        
-        .skip-to-content:focus {
-            top: 16px;
-            left: 16px;
-        }
-    </style>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="antialiased overflow-x-hidden relative">
 
     <div class="noise-overlay"></div>
-    
+
     <!-- Skip to content (acessibilidade) -->
     <a href="#bio" class="skip-to-content">Pular para conteúdo principal</a>
 
@@ -205,7 +86,7 @@
              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
         </button>
     </nav>
-    
+
     <!-- Menu Mobile Overlay -->
     <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50 hidden flex-col items-center justify-center">
         <button id="mobile-menu-close" aria-label="Fechar menu" class="absolute top-6 right-6 text-white">
@@ -311,20 +192,20 @@
                     </div>
                     <h3 class="text-2xl md:text-3xl font-display uppercase text-white mb-2">Freack Chic <span class="text-gray-600">@ D.EDGE</span></h3>
                     <p class="text-gray-500 font-light text-sm mb-6">Uma jornada progressiva gravada ao vivo em um dos clubes mais icônicos do Brasil.</p>
-                    
+
                     <!-- SoundCloud Embedded Player -->
                     <div class="w-full">
-                        <iframe 
-                            width="100%" 
-                            height="166" 
-                            scrolling="no" 
-                            frameborder="no" 
+                        <iframe
+                            width="100%"
+                            height="166"
+                            scrolling="no"
+                            frameborder="no"
                             allow="autoplay"
                             loading="lazy"
                             src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/moraandrad&color=%23ffffff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
                         </iframe>
                     </div>
-                    
+
                     <div class="mt-4 text-center">
                         <a href="https://soundcloud.com/moraandrad" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition">
                             Ver todos os sets no SoundCloud
@@ -417,19 +298,19 @@
         <div class="mt-20 text-center md:text-left text-[10px] text-gray-700 uppercase tracking-widest">
             © 2025 Morax. All Rights Reserved. São Paulo.
         </div>
-        
+
         <!-- Newsletter Signup -->
         <div class="mt-12 max-w-md mx-auto md:mx-0">
             <span class="block text-[10px] uppercase text-gray-600 tracking-widest mb-3">Stay Updated</span>
             <form class="flex gap-2" id="newsletter-form">
-                <input 
-                    type="email" 
-                    placeholder="seu@email.com" 
+                <input
+                    type="email"
+                    placeholder="seu@email.com"
                     required
                     aria-label="Email para newsletter"
                     class="flex-1 bg-white/5 border border-white/10 px-4 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30 transition"
                 >
-                <button 
+                <button
                     type="submit"
                     class="px-6 py-2 bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-gray-300 transition"
                 >
@@ -440,124 +321,7 @@
     </footer>
 
     <!-- JavaScript -->
-    <script>
-        // Menu Mobile Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('flex');
-            document.body.style.overflow = '';
-        });
-        
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('flex');
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Fechar menu ao pressionar ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('flex');
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // Lazy loading para imagens
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('loaded');
-                        imageObserver.unobserve(entry.target);
-                    }
-                });
-            });
-            
-            images.forEach(img => imageObserver.observe(img));
-        } else {
-            // Fallback para navegadores antigos
-            images.forEach(img => img.classList.add('loaded'));
-        }
-        
-        // Smooth scroll para navegação
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'start' 
-                    });
-                }
-            });
-        });
-        
-        // Newsletter form handler
-        const newsletterForm = document.getElementById('newsletter-form');
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = e.target.querySelector('input[type="email"]').value;
-            
-            // Aqui você pode integrar com um serviço de newsletter (Mailchimp, ConvertKit, etc.)
-            console.log('Newsletter signup:', email);
-            
-            // Feedback visual
-            const button = e.target.querySelector('button');
-            const originalText = button.textContent;
-            button.textContent = 'Inscrito!';
-            button.disabled = true;
-            
-            setTimeout(() => {
-                button.textContent = originalText;
-                button.disabled = false;
-                e.target.reset();
-            }, 3000);
-        });
-        
-        // Scroll animations usando Intersection Observer
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const fadeInObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Animar seções ao scroll
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-            fadeInObserver.observe(section);
-        });
-        
-        // Hero sempre visível
-        document.querySelector('header').style.opacity = '1';
-        document.querySelector('header').style.transform = 'translateY(0)';
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
