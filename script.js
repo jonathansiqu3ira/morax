@@ -68,28 +68,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Newsletter form handler
-const newsletterForm = document.getElementById('newsletter-form');
-newsletterForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = e.target.querySelector('input[type="email"]').value;
-
-    // Aqui você pode integrar com um serviço de newsletter (Mailchimp, ConvertKit, etc.)
-    console.log('Newsletter signup:', email);
-
-    // Feedback visual
-    const button = e.target.querySelector('button');
-    const originalText = button.textContent;
-    button.textContent = 'Inscrito!';
-    button.disabled = true;
-
-    setTimeout(() => {
-        button.textContent = originalText;
-        button.disabled = false;
-        e.target.reset();
-    }, 3000);
-});
-
 // Scroll animations usando Intersection Observer
 const observerOptions = {
     threshold: 0.1,
